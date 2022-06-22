@@ -26,7 +26,7 @@ let theme = createTheme({
     primary: {
       light: '#63ccff',
       main: '#009be5',
-      dark: '#006db3',
+      dark: '#271c35ff',
     },
   },
   typography: {
@@ -59,7 +59,7 @@ theme = {
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#081627',
+          backgroundColor: '#afa3bfff',
         },
       },
     },
@@ -128,7 +128,7 @@ theme = {
       styleOverrides: {
         root: {
           '&.Mui-selected': {
-            color: '#4fc3f7',
+            color: '#271c35ff',
           },
         },
       },
@@ -197,10 +197,10 @@ export default function Paperbase() {
         </Box>
         <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Header onDrawerToggle={handleDrawerToggle} />
-          <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
+          <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#271c35ff' }}>
             <Content />
           </Box>
-          <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
+          <Box component="footer" sx={{ p: 2, bgcolor: '#271c35ff' }}>
             <Copyright />
           </Box>
         </Box>

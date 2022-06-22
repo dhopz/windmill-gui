@@ -6,8 +6,8 @@ import Paperbase from '../Components/Paperbase';
 
 const App = () => {
     return (
-        <Header/>,
         <Navigator/>,
+        <Header/>,
         <Content/>,
         <Paperbase/>        
     );

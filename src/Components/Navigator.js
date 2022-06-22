@@ -17,28 +17,30 @@ import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputCompone
 import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 const categories = [
   {
-    id: 'Build',
+    id: 'Inventory',
     children: [
       {
-        id: 'Authentication',
+        id: 'Fulfilments',
         icon: <PeopleIcon />,
         active: true,
       },
-      { id: 'Database', icon: <DnsRoundedIcon /> },
+      { id: 'Data Management', icon: <DnsRoundedIcon /> },
       { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Hosting', icon: <PublicIcon /> },
-      { id: 'Functions', icon: <SettingsEthernetIcon /> },
+      { id: 'Links', icon: <PublicIcon /> },
+      { id: 'Sales Orders', icon: <SettingsEthernetIcon /> },
       {
-        id: 'Machine learning',
+        id: 'Reconciliation',
         icon: <SettingsInputComponentIcon />,
       },
     ],
   },
   {
-    id: 'Quality',
+    id: 'Reports',
     children: [
       { id: 'Analytics', icon: <SettingsIcon /> },
       { id: 'Performance', icon: <TimerIcon /> },
@@ -68,17 +70,21 @@ export default function Navigator(props) {
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
-        <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
-          Paperbase
+        <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff', bgcolor:'#271c35ff' }}>
+          Windmill Operations
         </ListItem>
-        <ListItem sx={{ ...item, ...itemCategory }}>
+        <ListItem sx={{ ...item, ...itemCategory, bgcolor:'#271c35ff' }}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText>Project Overview</ListItemText>
+          <Typography variant="body2" color="text.secondary" align="center">
+            <Link href="https://www.windmillorganics.com/">
+              NetSuite
+            </Link>{' '}
+          </Typography>
         </ListItem>
         {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: '#101F33' }}>
+          <Box key={id} sx={{ bgcolor: '#593f78ff' }}>
             <ListItem sx={{ py: 2, px: 3 }}>
               <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
             </ListItem>

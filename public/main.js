@@ -4,7 +4,7 @@ function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
     title:"Windmill Inventory",
-    width: 900,
+    width: 1200,
     height: 700,
     maxHeight:700,
     maxWidth:800,

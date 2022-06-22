@@ -13,8 +13,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://www.windmillorganics.com/">
+        Windmill Organics
       </Link>{' '}
       {new Date().getFullYear()}.
     </Typography>
@@ -24,9 +24,9 @@ function Copyright() {
 let theme = createTheme({
   palette: {
     primary: {
-      light: '#63ccff',
-      main: '#009be5',
-      dark: '#006db3',
+      light: '#AFA3BF',
+      main: '#8B6CB2',
+      dark: '#271c35ff',
     },
   },
   typography: {
@@ -59,7 +59,7 @@ theme = {
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#081627',
+          backgroundColor: '#271c35ff',
         },
       },
     },
