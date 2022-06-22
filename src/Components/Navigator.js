@@ -24,18 +24,12 @@ const categories = [
   {
     id: 'Inventory',
     children: [
-      {
-        id: 'Fulfilments',
-        icon: <PeopleIcon />,
-        active: true,
-      },
+      { id: 'Fulfilments',icon: <PeopleIcon /> },
       { id: 'Data Management', icon: <DnsRoundedIcon /> },
       { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
       { id: 'Links', icon: <PublicIcon /> },
       { id: 'Sales Orders', icon: <SettingsEthernetIcon /> },
-      {
-        id: 'Reconciliation',
-        icon: <SettingsInputComponentIcon />,
+      { id: 'Reconciliation', icon: <SettingsInputComponentIcon />,
       },
     ],
   },
@@ -68,39 +62,39 @@ export default function Navigator(props) {
   const { ...other } = props;
 
   return (
-    <Drawer variant="permanent" {...other}>
-      <List disablePadding>
-        <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff', bgcolor:'#271c35ff' }}>
-          Windmill Operations
-        </ListItem>
-        <ListItem sx={{ ...item, ...itemCategory, bgcolor:'#271c35ff' }}>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <Typography variant="body2" color="text.secondary" align="center">
-            <Link href="https://www.windmillorganics.com/">
-              NetSuite
-            </Link>{' '}
-          </Typography>
-        </ListItem>
-        {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: '#593f78ff' }}>
-            <ListItem sx={{ py: 2, px: 3 }}>
-              <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
-            </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem disablePadding key={childId}>
-                <ListItemButton selected={active} sx={item}>
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText>{childId}</ListItemText>
-                </ListItemButton>
+      <Drawer variant="permanent" {...other}>
+        <List disablePadding>
+          <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff', bgcolor:'#271c35ff' }}>
+            Windmill Operations
+          </ListItem>
+          <ListItem sx={{ ...item, ...itemCategory, bgcolor:'#271c35ff' }}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <Typography variant="body2" color="text.secondary" align="center">
+              <Link  target="_blank" underline="none" color="#fff" href="https://www.windmillorganics.com/">
+                NetSuite
+              </Link>
+            </Typography>
+          </ListItem>
+          {categories.map(({ id, children }) => (
+            <Box key={id} sx={{ bgcolor: '#593f78ff' }}>
+              <ListItem sx={{ py: 2, px: 3 }}>
+                <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
               </ListItem>
-            ))}
+              {children.map(({ id: childId, icon, active }) => (
+                <ListItem disablePadding key={childId}>
+                  <ListItemButton selected={active} sx={item}>
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText primary={childId}>{childId}</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              ))}
 
-            <Divider sx={{ mt: 2 }} />
-          </Box>
-        ))}
-      </List>
-    </Drawer>
+              <Divider sx={{ mt: 2 }} />
+            </Box>
+          ))}
+        </List>
+      </Drawer>
   );
 }
