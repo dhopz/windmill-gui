@@ -4,24 +4,37 @@ function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
     title:"Windmill Inventory",
-    width: 800,
-    height: 600,
+    width: 900,
+    height: 700,
     maxHeight:700,
     maxWidth:800,
     minHeight:400,
     minWidth:400,
-    backgroundColor:'#7B435B',
+    // backgroundColor:'#7B435B',
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule:true,
+      contextIsolation: false,
     }
   })
+
+//   const child = new BrowserWindow({ 
+//     parent: win,
+//     width: 800,
+//     height: 600,
+//     show:false
+// })
+  //child.loadURL("https://5349036.app.netsuite.com/app/login/secure/enterpriselogin.nl?c=5349036&redirect=%2Fapp%2Fcenter%2Fcard.nl%3Fsc%3D-29%26whence%3D&whence=")
+  // child.loadURL('https://github.com')
+//show as soon as the file is rendered
+  // child.once('ready-to-show', () => {   child.show() })
+  win.show()
 
   //load the index.html from a url
   win.loadURL('http://localhost:3000');
 
   // Open the DevTools.
-//   win.webContents.openDevTools()
+  win.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
