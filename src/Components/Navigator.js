@@ -14,33 +14,36 @@ import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActual';
 import PublicIcon from '@mui/icons-material/Public';
 import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
 import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
-import TimerIcon from '@mui/icons-material/Timer';
-import SettingsIcon from '@mui/icons-material/Settings';
-import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
+// import TimerIcon from '@mui/icons-material/Timer';
+// import SettingsIcon from '@mui/icons-material/Settings';
+// import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const categories = [
   {
     id: 'Inventory',
     children: [
       { id: 'Fulfilments',icon: <PeopleIcon /> },
-      { id: 'Data Management', icon: <DnsRoundedIcon /> },
+      { id: 'Data', icon: <DnsRoundedIcon />, onClick:"/data"},
       { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
       { id: 'Links', icon: <PublicIcon /> },
-      { id: 'Sales Orders', icon: <SettingsEthernetIcon /> },
+      { id: 'Orders', icon: <SettingsEthernetIcon /> },
       { id: 'Reconciliation', icon: <SettingsInputComponentIcon />,
       },
     ],
   },
-  {
-    id: 'Reports',
-    children: [
-      { id: 'Analytics', icon: <SettingsIcon /> },
-      { id: 'Performance', icon: <TimerIcon /> },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
-    ],
-  },
+  // {
+  //   id: 'Reports',
+  //   children: [
+  //     { id: 'Analytics', icon: <SettingsIcon /> },
+  //     { id: 'Performance', icon: <TimerIcon /> },
+  //     { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
+  //   ],
+  // },
 ];
 
 const item = {
@@ -61,8 +64,16 @@ const itemCategory = {
 export default function Navigator(props) {
   const { ...other } = props;
 
+  const navigate = useNavigate();
+
+  const navigateToData = () => {
+    // 👇️ navigate to /
+    navigate('/data');
+}; 
+  
+
   return (
-      <Drawer variant="permanent" {...other}>
+      <Drawer variant="persistent" anchor='left' open {...other}>
         <List disablePadding>
           <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff', bgcolor:'#271c35ff' }}>
             Windmill Operations
@@ -82,13 +93,15 @@ export default function Navigator(props) {
               <ListItem sx={{ py: 2, px: 3 }}>
                 <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
               </ListItem>
-              {children.map(({ id: childId, icon, active }) => (
-                <ListItem disablePadding key={childId}>
-                  <ListItemButton selected={active} sx={item}>
-                    <ListItemIcon>{icon}</ListItemIcon>
-                    <ListItemText primary={childId}>{childId}</ListItemText>
-                  </ListItemButton>
-                </ListItem>
+              {children.map(({ id: childId, icon, active, onClick }) => (                
+                  <ListItem disablePadding key={childId}>
+                    <ListItemButton selected={active} sx={item}>
+                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemText primary={childId}>{childId}</ListItemText>
+                      <Link onClick={navigateToData}></Link>
+                    </ListItemButton>
+                  </ListItem>
+                
               ))}
 
               <Divider sx={{ mt: 2 }} />
